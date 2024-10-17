@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.searchOutputController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+         <items>
+            <HBox maxWidth="Infinity" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="homeButton" mnemonicParsing="false" onAction="#home" styleClass="toolbar-button" text="Home" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Button fx:id="logoutButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logout" styleClass="toolbar-button" text="Logout" />
+                  <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quit" styleClass="toolbar-button" text="Quit" />
+               </children>
+               <padding>
+                  <Insets left="14.0" right="14.0" />
+               </padding>
+            </HBox>
+         </items>
+      </ToolBar>
+      <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" styleClass="background" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox spacing="10.0" styleClass="background" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="19.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER" graphicTextGap="0.0" style="&#10;" styleClass="label-on-bg" text="Results" textAlignment="CENTER" wrapText="false">
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane HBox.hgrow="ALWAYS" />
+                        <Button fx:id="createAlbumButton" mnemonicParsing="false" onAction="#createAlbumFromResults" text="Create Album from Results" />
+                        <TextField fx:id="nameOfAlbum" promptText="Enter Name" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToWidth="true" styleClass="background">
+                     <content>
+                        <GridPane fx:id="photoGrid" alignment="CENTER" styleClass="background" vgap="5.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="100.0" />
+                              <RowConstraints minHeight="100.0" />
+                              <RowConstraints minHeight="100.0" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+            <VBox layoutX="-6.0" layoutY="587.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

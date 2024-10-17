@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.homeController">
+  <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <HBox alignment="CENTER_LEFT" maxWidth="Infinity" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="username" styleClass="label-on-light-bg" text="Username" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Button fx:id="logoutButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logout" styleClass="toolbar-button" text="Logout" />
+                  <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quit" styleClass="toolbar-button" text="Quit" />
+               </children>
+               <padding>
+                  <Insets left="14.0" right="14.0" />
+               </padding>
+            </HBox>
+        </items>
+      </ToolBar>
+    <SplitPane dividerPositions="0.7444320712694877" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+      <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" styleClass="background">
+        <children>
+                  <VBox prefHeight="200.0" prefWidth="422.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="19.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                      <Label alignment="CENTER" graphicTextGap="0.0" style="&#10;" styleClass="label-on-bg" text="All Albums" textAlignment="CENTER" wrapText="false">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <Button fx:id="createAlbumButton" mnemonicParsing="false" onAction="#createAlbumPopup" text="Create Album" />
+                           </children>
+                        </HBox>
+                    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="-1.0" prefWidth="-1.0" styleClass="background">
+                           <content>
+                              <GridPane fx:id="photoGrid" prefHeight="470.0" prefWidth="392.0" styleClass="background">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </content>
+                    </ScrollPane>
+                        <VBox spacing="10.0" styleClass="sidebar">
+                           <children>
+                              <Label fx:id="selectedAlbumDisplay" text="Actions on Selected Album: " />
+                              <FlowPane hgap="10.0" vgap="10.0">
+                                 <children>
+                                    <Button fx:id="openAlbumButton" mnemonicParsing="false" onAction="#openAlbum" text="Open" />
+                                    <Button fx:id="deleteAlbumButton" mnemonicParsing="false" onAction="#deleteAlbum" text="Delete" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+        </children>
+      </AnchorPane>
+            <AnchorPane styleClass="sidebar">
+               <children>
+                  <VBox alignment="CENTER" spacing="10.0" styleClass="sidebar" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="19.0">
+                     <children>
+                        <HBox prefHeight="40.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <children>
+                        <Label alignment="CENTER" maxHeight="-Infinity" minWidth="60.0" prefHeight="10.0" prefWidth="-1.0" style="&#10;" styleClass="label-on-bg" text="Find Photos" textAlignment="CENTER" wrapText="false">
+                          <font>
+                            <Font size="18.0" />
+                          </font>
+                          <textFill>
+                            <Color red="0.624" green="0.624" blue="0.624" />
+                          </textFill>
+                        </Label>
+                           </children>
+                        </HBox>
+                        <Accordion VBox.vgrow="NEVER">
+                          <panes>
+                            <TitledPane animated="false" text="Date Range">
+                              <content>
+                                <AnchorPane styleClass="background">
+                                       <children>
+                                          <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <VBox alignment="CENTER_LEFT" prefWidth="100.0" spacing="10.0">
+                                                   <children>
+                                                      <Label styleClass="label-on-bg" text="Start Date">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <ComboBox fx:id="startMonth" promptText="Month" styleClass="search-combo-box" />
+                                                      <ComboBox fx:id="startDay" layoutX="10.0" layoutY="10.0" promptText="Day" styleClass="search-combo-box" />
+                                                      <TextField fx:id="startYear" promptText="Year" styleClass="search-combo-box" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" styleClass="label-on-bg" text="End Date">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <ComboBox fx:id="endMonth" promptText="Month" styleClass="search-combo-box" />
+                                                      <ComboBox fx:id="endDay" layoutX="10.0" layoutY="10.0" promptText="Day" styleClass="search-combo-box" />
+                                                      <TextField fx:id="endYear" promptText="Year" styleClass="search-combo-box" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" styleClass="background" text="Tags">
+                              <content>
+                                <AnchorPane styleClass="background">
+                                       <children>
+                                          <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <TextFlow>
+                                                   <children>
+                                                      <Label maxWidth="170.0" styleClass="label-on-bg" text="Search using 1 tag or 2 tags. Default OR if all fields are filled." wrapText="true" />
+                                                   </children>
+                                                </TextFlow>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ComboBox fx:id="tag1type" editable="true" prefHeight="26.0" prefWidth="147.0" promptText="Tag 1" styleClass="search-combo-box" />
+                                                      <Label text="=" />
+                                                   </children>
+                                                </HBox>
+                                                <TextField fx:id="tag1value" promptText="Tag 1 value" />
+                                                <HBox alignment="CENTER" spacing="15.0">
+                                                   <children>
+                                                      <Button fx:id="andButton" mnemonicParsing="false" onAction="#andSearch" text="AND" />
+                                                      <Button fx:id="orButton" mnemonicParsing="false" onAction="#orSearch" text="OR" />
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="15.0" top="15.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ComboBox fx:id="tag2type" editable="true" maxWidth="-Infinity" prefWidth="147.0" promptText="Tag 2" styleClass="search-combo-box" />
+                                                      <Label text="=" />
+                                                   </children>
+                                                </HBox>
+                                                <TextField fx:id="tag2value" promptText="Tag 2 value" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Accordion>
+                        <HBox alignment="CENTER" spacing="15.0">
+                           <children>
+                              <Button fx:id="dateSearchButton" mnemonicParsing="false" onAction="#dateSearch" text="By Date" />
+                              <Button fx:id="tagSearchButton" mnemonicParsing="false" onAction="#tagSearch" text="By Tag" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Button fx:id="searchButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchPhotos" text="Search" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="7.0" right="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                        <Pane VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

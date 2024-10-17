@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- <VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.photoViewerController">
+    <ImageView fx:id="photoImageView" fitHeight="400" fitWidth="400">
+      <image>
+         <Image url="@../../../../../Downloads/goldBrick.jpg" />
+      </image></ImageView>
+    <Label fx:id="captionLabel" />
+    <Label fx:id="dateTimeLabel" />
+    <Label fx:id="tagsLabel" />
+</VBox> -->
+
+<VBox prefHeight="600.0" prefWidth="800.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.simplePhotoViewerController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+         <items>
+            <Label styleClass="label-on-light-bg" text="Photo Viewer">
+               <padding>
+                  <Insets left="10.0" />
+               </padding></Label>
+         </items>
+      </ToolBar>
+      <SplitPane dividerPositions="0.768796992481203" VBox.vgrow="ALWAYS">
+         <items>
+            <AnchorPane styleClass="background">
+               <children>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="background" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                     <content>
+                        <VBox fx:id="imageSpace" alignment="CENTER" spacing="10.0" styleClass="background">
+                           <children>
+                                    <ImageView fx:id="image" fitHeight="308.0" fitWidth="559.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <image>
+                                          <Image url="@../imgs/starry%20sky.jpg" />
+                                       </image>
+                                    </ImageView>
+                              <Label fx:id="dateDisplay" styleClass="label-on-bg" text="date" />
+                              <HBox fx:id="captionBox" alignment="CENTER" spacing="10.0" styleClass="background">
+                                 <children>
+                                    <Label fx:id="caption" styleClass="label-on-bg" text="caption for photo" textAlignment="CENTER" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane styleClass="sidebar">
+               <children>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="sidebar" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <content>
+                        <VBox spacing="5.0" styleClass="sidebar">
+                           <children>
+                              <Label text="Tags">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="tagList" styleClass="sidebar" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</VBox>

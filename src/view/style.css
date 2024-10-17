@@ -1,0 +1,83 @@
+.button, ComboBox, TitledPane.title{
+ -fx-background-color: #92e4de49;  
+ -fx-border-color: #415C5A; 
+ -fx-border-radius: 4;
+ -fx-background-radius: 5;
+ -fx-background-insets: 0;
+-fx-border-insets: 0;
+-fx-text-fill: #FEFFFE;
+-fx-font-size:13;
+}
+
+
+.button:hover, .selected {
+    -fx-background-color: #348f87; /* Change background color on hover */
+    -fx-text-fill: #ffffff;
+}
+.grid-pane .flow-pane {
+    -fx-hgrow: always;
+    -fx-vgrow: always;
+}
+/* Styling for the button when clicked */
+.button:pressed {
+    -fx-border-color: rgb(178, 221, 217); 
+    -fx-border-width: 1;
+}
+
+.photo-grid-button{
+    -fx-font-size: 11;
+    -fx-background-color:#1b262549;
+}
+
+.label-on-light-bg{
+    -fx-background-color: #348f8791;  
+    -fx-padding:5;
+}
+
+.cancelButton{
+    -fx-background-color: rgb(84, 92, 92);
+    -fx-text-fill: #e1e1e1;
+    -fx-font-size: 11;
+}
+
+.edit-button{
+    -fx-border-width:0;
+    -fx-font-size: 11;
+    -fx-background-color:#1b262549;
+}
+
+.background {
+ -fx-background-color: #1B2625;
+}
+
+
+.label-on-bg, Label, .photo-grid-button{
+    -fx-text-fill: #FEFFFE;
+}
+
+.sidebar{
+    -fx-background-color:#2a4240;
+}
+
+ToolBar{
+    -fx-background-color:rgb(164, 191, 193);
+}
+
+.no-caption{
+    -fx-text-fill:#969696;
+}
+
+.search-combo-box{
+    -fx-font-size: 13;
+    -fx-background-color:#f6fffed0;
+}
+
+.action-bar{
+    -fx-background-color:#080b0b60;
+}
+
+.toolbar-button{
+    -fx-background-color: #385c5a64;  
+    -fx-border-color: #97a4a300;
+
+}

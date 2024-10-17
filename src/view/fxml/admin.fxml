@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.adminController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+         <items>
+            <HBox alignment="CENTER" maxWidth="Infinity" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-on-light-bg" text="Admin" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Button fx:id="logoutButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logout" styleClass="toolbar-button" text="Logout" />
+                  <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quit" styleClass="toolbar-button" text="Quit" />
+               </children>
+               <padding>
+                  <Insets left="14.0" right="14.0" />
+               </padding>
+            </HBox>
+         </items>
+      </ToolBar>
+      <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" styleClass="background" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="422.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="19.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER" graphicTextGap="0.0" style="&#10;" styleClass="label-on-bg" text="All Users" textAlignment="CENTER" wrapText="false">
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addUserButton" mnemonicParsing="false" onAction="#addUser" text="Add User" />
+                        <Button fx:id="deleteUserButton" mnemonicParsing="false" onAction="#deleteUser" text="Delete Selected User" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="-1.0" prefWidth="-1.0" styleClass="background">
+                     <content>
+                        <ListView fx:id="userList" styleClass="background">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </ListView>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
